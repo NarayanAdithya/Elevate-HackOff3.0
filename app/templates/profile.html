@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Elevate-Hackoff</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Antic+Slab">
+    <link rel="stylesheet" href="static/assets/css/Animated-Typing-With-Blinking.css">
+    <link rel="stylesheet" href="static/assets/css/Google-Style-Text-Input.css">
+    <link rel="stylesheet" href="static/assets/css/Navbar---Logo-Middle---Phone-Logo-Middle.css">
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+    <link rel="stylesheet" href="static/assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="static/assets/css/Team-Grid.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body style="background: linear-gradient(90deg, rgb(200,195,203), rgb(124,0,135));">
+    <nav class="navbar navbar-light navbar-expand-md" style="margin-top: -15px;margin-bottom: 0px;">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><img src="static/assets/img/Elevate%20(1).png" style="height: 90px;width: 90px;margin: 0px;margin-top: 0px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="border-color: rgba(0,0,0,0);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navcol-1" style="font-size: 20px;color: rgb(255,255,255);">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" style="color: #ffffff;font-family: 'Antic Slab', serif;" href="{{url_for('home')}}">Home</a></li>
+                    {%if current_user.is_anonymous %}
+                    <li class="nav-item"><a class="nav-link active" style="color: #ffffff;font-family: 'Antic Slab', serif;" href="{{url_for('Login')}}">Login</a></li>
+                    {%else%}
+                    <li class="nav-item"><a class="nav-link active" style="color: #ffffff;font-family: 'Antic Slab', serif;" href="{{url_for('logout')}}">Logout</a></li>
+                    {%endif%}
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('Patientin')}}" style="color: #ffffff;font-family: 'Antic Slab', serif;">Check In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('contact')}}" style="color: #ffffff;font-family: 'Antic Slab', serif;">Contact</a></li>
+                    {%if current_user.is_authenticated%}
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('profile')}}" style="color: #ffffff;font-family: 'Antic Slab', serif;">Hey,{{current_user.username}}</a></li>                   
+                    {%endif%}</ul>
+            </div>
+        </div>
+    </nav>
+    {% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {%for category,message in messages%}
+      <div class="container">
+        <br>
+        <div class="alert alert-{{category}} alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="close" name="button"><span aria-hidden="true">&times;</span></button>
+          {{message}}
+        </div>
+      </div>
+
+      {%endfor%}
+    {%endif%}
+    {%endwith%}
+    <div class="container">
+        <h1>This is the resuts of patient 12005, </h1>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/Animated-Typing-With-Blinking.js"></script>
+    
+</body>
+
+</html>
