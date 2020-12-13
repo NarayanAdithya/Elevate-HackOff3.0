@@ -13,23 +13,6 @@ Here is where ELAVATE comes in for you to find the perfect path to control and g
 ELAVATE is an AI based depression detection system that assists psychiatrists along with psychologist to guide as well as examine their patients with absolute easiness especially during this time of pandemic
 
 
-
-
-# Features :raised_hands:
-  
-  
-  <img align="right" src="https://media.giphy.com/media/jRf5fsn8G6YaogAWxn/giphy.gif" width="200" height="200"/>
-  
-
-# Tech :raised_hands:
-
-
-
-
-
-[Fl
-
-
 ![bottom.png](https://i.loli.net/2020/07/12/b3grZD6LFseGuUP.png)
 
 
