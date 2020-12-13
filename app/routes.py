@@ -6,3 +6,14 @@ from wtforms.validators import ValidationError
 from datetime import datetime
 
 
+@app.route('/')
+@app.route('/home')
+def home():
+    return render_template('index.html')
+
+@app.route('/logout')
+def logout():
+    current_user.last_seen=datetime.utcnow()
+    db.session.commit()
+    logout_user()
+    return redirect(url_for('home'))
