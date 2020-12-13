@@ -6,6 +6,8 @@ from werkzeug.urls import url_parse
 from wtforms.validators import ValidationError
 from datetime import datetime
 from app.camera import VideoCamera
+import pandas as pd
+import pickle
 
 @app.route('/')
 @app.route('/home')
@@ -56,7 +58,10 @@ def contact():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    a=pickle.load(open('app/emotions.pkl','rb'))
+    data=pd.DataFrame(a)
+    a=data[0].value_counts().to_dict()
+    return render_template('profile.html',a=a)
 
 
 
